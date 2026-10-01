@@ -1,0 +1,39 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks'
+import { Lead } from '../design-system/docs-blocks'
+import * as Stories from './CalendarGrid.stories'
+
+<Meta of={Stories} />
+
+# Calendar grid
+
+<Lead>
+  Reception's main view: every doctor side by side, a status on every appointment, free time you can click to book.
+</Lead>
+
+<Canvas of={Stories.Day} />
+<Controls of={Stories.Day} />
+
+## How to read it
+
+| Element | Meaning |
+| --- | --- |
+| Soft fill + status badge | Confirmed, checked in, in progress, done, no-show. Icon and text, never color alone. |
+| Dashed outline | Pending request that still needs a decision. |
+| Thin dashed trace, struck through | Cancelled. It stays visible for context but does not block the slot. |
+| Hatched block with a lock | Time blocked by the doctor: home visits, vacation. |
+| "Filled from waitlist" | The slot was cancelled and taken by a waitlist patient without a phone call. |
+| Accent line | Now. |
+
+## Interaction
+
+- Hover a free slot to see its time; click to start a phone booking with doctor and time filled in.
+- Click an appointment to open it: confirm, move, mark as arrived or no-show.
+- Dragging to move and keyboard shortcuts come with the dashboard screen.
+
+Kept from the 2019 original: doctors as columns with a status per appointment. Changed: cancelled appointments no
+longer look like bookings, and the calendar shows where the waitlist saved a slot.
+
+## Accessibility
+
+- Appointments are buttons with their time, name and status as text.
+- Free slots also have a keyboard path: the "New booking" action on the dashboard.

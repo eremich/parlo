@@ -1,0 +1,63 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { Lead } from './docs-blocks'
+
+<Meta title="Guidelines" />
+
+# Guidelines
+
+<Lead>Five principles and a handful of rules that every screen follows.</Lead>
+
+## Principles
+
+1. **Earliest real slot first.** Time beats ratings in a results list.
+2. **Language is visible everywhere,** as codes and names, never flags. Flags are countries, not languages.
+3. **Tell staff what to do now.** The dashboard starts with "Needs attention".
+4. **One schedule, three views.** A change is instantly true for the patient, the doctor and reception.
+5. **Consent is explicit and reversible.** Patients see which practices have their data.
+
+## Color
+
+- Tokens only. No raw hex values in components; if a value is missing, add a token.
+- `brand` is for primary actions and selection. `accent` is emphasis for the earliest slot, used sparingly and
+  never for errors.
+- Status always pairs an icon with a label. Color alone never carries meaning.
+- Text in a status or accent color uses the `-text` token; backgrounds use `-soft`. The Colors page shows the
+  contrast of every pair.
+
+## Type
+
+- System UI font for everything functional; Instrument Sans only for large titles and brand moments.
+- Mobile uses the iOS scale, the dashboard its own denser web scale.
+- Times and prices use `tabular-nums`.
+
+## Formats
+
+| What | Format | Example |
+| --- | --- | --- |
+| Date | Weekday, day, month | Thu, 12 Mar |
+| Time | 24-hour | 08:40 |
+| Price | Private patients only | € 85 for private patients |
+| Public insurance | No price | Covered by public insurance |
+| Languages | Codes in a chip, names in text | EN · TR · AR / Speaks English, Turkish |
+
+## Writing
+
+- Sentence case, plain words. Formal "Sie" in German.
+- Lead with time and language: "Tomorrow 08:40 · Speaks English, Turkish".
+- Buttons say what happens: "Book 08:40", "Take earlier slot", "Mark as no-show".
+- Errors say what happened and what to do. No apologies.
+- Never promise medical outcomes. No symptom advice.
+
+## Motion
+
+- Press feedback: scale to 97 % in 150 ms.
+- Enter with ease-out; sheets use the drawer curve over 360 ms.
+- Keyboard actions in the dashboard do not animate.
+- Reduced motion removes movement and keeps fades.
+
+## Accessibility
+
+- WCAG 2.1 AA in light and dark.
+- 44 px touch targets on mobile; chips extend their hit area.
+- Every control has a visible label or an accessible name; focus is always visible.
+- German copy must fit without overflow on every screen.

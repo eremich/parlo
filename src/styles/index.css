@@ -1,0 +1,220 @@
+@import 'tailwindcss';
+@import './tokens.css';
+
+/* Themes are driven by data-theme on <html>, not by the OS setting */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --color-on-brand: var(--on-brand);
+  --color-hero: var(--hero);
+  --color-hero-glow: var(--hero-glow);
+  --color-hero-deep: var(--hero-deep);
+  --color-on-hero: var(--on-hero);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-accent-soft: var(--accent-soft);
+  --color-ok: var(--ok);
+  --color-ok-text: var(--ok-text);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-text: var(--warn-text);
+  --color-warn-soft: var(--warn-soft);
+  --color-error: var(--error);
+  --color-error-text: var(--error-text);
+  --color-error-soft: var(--error-soft);
+  --color-info: var(--info);
+  --color-info-text: var(--info-text);
+  --color-info-soft: var(--info-soft);
+  --color-stage: var(--stage);
+  --color-stage-ink: var(--stage-ink);
+  --color-bezel: var(--bezel);
+
+  --radius-chip: var(--radius-chip);
+  --radius-control: var(--radius-control);
+  --radius-card: var(--radius-card);
+  --radius-sheet: var(--radius-sheet);
+
+  --shadow-card: var(--shadow-card);
+  --shadow-sheet: var(--shadow-sheet);
+  --shadow-device: var(--shadow-device);
+
+  --ease-out: var(--ease-out);
+  --ease-in-out: var(--ease-in-out);
+  --ease-drawer: var(--ease-drawer);
+}
+
+@theme {
+  --animate-screen-in: screen-in 240ms var(--ease-out);
+  --animate-screen-back: screen-back 240ms var(--ease-out);
+  /* Navigation: iOS push/pop with the drawer curve, quick crossfade for tabs */
+  --animate-push-enter: push-enter 420ms var(--ease-drawer) both;
+  --animate-push-exit: push-exit 420ms var(--ease-drawer) both;
+  --animate-pop-enter: pop-enter 420ms var(--ease-drawer) both;
+  --animate-pop-exit: pop-exit 420ms var(--ease-drawer) both;
+  --animate-fade-in: fade-in 180ms var(--ease-out) both;
+  --animate-fade-out: fade-out 140ms var(--ease-out) both;
+  --animate-dim-in: fade-in 420ms var(--ease-drawer) both;
+  --animate-dim-out: fade-out 420ms var(--ease-drawer) both;
+  --animate-pop-in: pop-in 320ms var(--ease-out);
+
+  /* Inter everywhere, so screenshots match on any OS; proportions close to SF Pro */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Instrument Sans', system-ui, sans-serif;
+
+  /* Mobile · iOS scale */
+  --text-large-title: 34px;
+  --text-large-title--line-height: 41px;
+  --text-title2: 22px;
+  --text-title2--line-height: 28px;
+  --text-title3: 20px;
+  --text-title3--line-height: 25px;
+  --text-headline: 17px;
+  --text-headline--line-height: 22px;
+  --text-headline--font-weight: 600;
+  --text-body: 17px;
+  --text-body--line-height: 22px;
+  --text-callout: 16px;
+  --text-callout--line-height: 21px;
+  --text-subheadline: 15px;
+  --text-subheadline--line-height: 20px;
+  --text-footnote: 13px;
+  --text-footnote--line-height: 18px;
+  --text-caption: 12px;
+  --text-caption--line-height: 16px;
+  --text-caption2: 11px;
+  --text-caption2--line-height: 13px;
+
+  /* Web dashboard scale */
+  --text-page-title: 28px;
+  --text-page-title--line-height: 34px;
+  --text-section: 20px;
+  --text-section--line-height: 28px;
+  --text-web-body: 15px;
+  --text-web-body--line-height: 22px;
+  --text-meta: 13px;
+  --text-meta--line-height: 18px;
+  --text-label: 12px;
+  --text-label--line-height: 16px;
+}
+
+@keyframes screen-in {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+}
+
+@keyframes screen-back {
+  from {
+    opacity: 0;
+    transform: translateX(-28px);
+  }
+}
+
+@keyframes push-enter {
+  from {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes push-exit {
+  to {
+    transform: translateX(-30%);
+  }
+}
+
+@keyframes pop-enter {
+  from {
+    transform: translateX(-30%);
+  }
+}
+
+@keyframes pop-exit {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes push-in {
+  from {
+    opacity: 0;
+    transform: translateY(-110%);
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    background: var(--stage);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/*
+ * Branded header surface: brand green with a soft glow top-right, deepening downwards.
+ * Pixel-based geometry so the status-bar strip and the header line up exactly at the top.
+ */
+@utility hero-surface {
+  background-color: var(--hero);
+  background-image:
+    radial-gradient(440px 280px at 100% 0%, var(--hero-glow), transparent 72%),
+    linear-gradient(180deg, var(--hero) 0px, var(--hero) 120px, var(--hero-deep) 320px);
+}
+
+/* Scroll-linked: invisible at the top of the page, solid after 48px of scroll */
+@keyframes hero-strip-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.hero-strip {
+  animation: hero-strip-in linear both;
+  animation-timeline: scroll();
+  animation-range: 0 48px;
+}

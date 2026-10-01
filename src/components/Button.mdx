@@ -1,0 +1,58 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks'
+import { BothThemes, DoDont, Lead } from '../design-system/docs-blocks'
+import { Button } from './Button'
+import * as Stories from './Button.stories'
+
+<Meta of={Stories} />
+
+# Button
+
+<Lead>Starts an action. The label says exactly what happens next: "Book 08:40", not "Continue".</Lead>
+
+<Canvas of={Stories.Primary} />
+<Controls of={Stories.Primary} />
+
+## Variants
+
+<Canvas of={Stories.Variants} />
+
+| Variant | Use for |
+| --- | --- |
+| `primary` | The one main action of a screen or sheet |
+| `secondary` | Useful alternatives next to the primary: add to calendar, directions |
+| `plain` | Low-emphasis actions inside content: "See all times" |
+| `destructive` | Actions that remove something: cancel, no-show. Always confirm. |
+
+## Sizes
+
+<Canvas of={Stories.Sizes} />
+
+`lg` is the mobile primary action (50 px, capsule, full width at the bottom of a screen). `md` is the default for
+mobile secondary and web primary actions. `sm` is for dense dashboard rows.
+
+## States
+
+<Canvas of={Stories.States} />
+
+Pressing scales to 97 % in 150 ms, so the button feels like it heard you. Loading keeps the width and disables the
+button to prevent double bookings.
+
+## Light and dark
+
+<BothThemes>
+  <Button size="lg">Book 08:40</Button>
+  <Button variant="secondary">Add to calendar</Button>
+</BothThemes>
+
+## Writing labels
+
+<DoDont
+  good={{ title: 'Say what happens', example: <Button size="lg">Take earlier slot</Button>, children: 'Verb plus the object, with the time when it matters.' }}
+  bad={{ title: 'Avoid generic labels', example: <Button size="lg">OK</Button>, children: '"OK", "Submit" and "Continue" hide the consequence.' }}
+/>
+
+## Accessibility
+
+- Native `button` element; focus ring from the brand token.
+- Loading sets `aria-busy`; the spinner is decorative.
+- Icons are decorative (`aria-hidden`); the text label is always present.

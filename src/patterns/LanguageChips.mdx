@@ -1,0 +1,50 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks'
+import { BothThemes, DoDont, Lead } from '../design-system/docs-blocks'
+import { LANGUAGE_NAMES } from '../data/languages'
+import { LanguageChips } from './LanguageChips'
+import * as Stories from './LanguageChips.stories'
+
+<Meta of={Stories} />
+
+# Language chips
+
+<Lead>
+  Parlo's main difference: which languages a doctor speaks, visible on every result. Codes in soft pills, the
+  patient's own languages highlighted and listed first.
+</Lead>
+
+<Canvas of={Stories.Matched} />
+<Controls of={Stories.Matched} />
+
+## Why codes, not flags
+
+A flag is a country, not a language. Arabic is spoken in more than twenty countries; Switzerland has four
+official languages; a Ukrainian flag would exclude Ukrainians who prefer Russian. Codes are neutral, short enough
+for a result card, and screen readers hear the full names ("Speaks English, Russian, Ukrainian, German").
+
+<DoDont
+  good={{ title: 'Codes, patient languages first', example: <LanguageChips languages={[{ code: 'EN', level: 'fluent' }, { code: 'AR', level: 'native' }, { code: 'DE', level: 'fluent' }]} names={LANGUAGE_NAMES.en} matched={['EN', 'AR']} />, children: 'Omar speaks English and Arabic: both are highlighted and come first.' }}
+  bad={{ title: 'Flags or full names in cards', example: <span className="text-headline">🇩🇪 🇬🇧 🇸🇦</span>, children: 'Flags mean countries and exclude people. Names are too long for a card; use them in text.' }}
+/>
+
+## Variants
+
+<Canvas of={Stories.Small} />
+
+`md` on result cards and profiles, `sm` in the practice calendar and dense tables.
+
+<Canvas of={Stories.DetailedList} />
+
+The profile lists each language with its level (Native, Fluent). Levels are declared by the practice and shown as
+words, not bars.
+
+## Light and dark
+
+<BothThemes>
+  <LanguageChips languages={[{ code: 'UK', level: 'native' }, { code: 'RU', level: 'native' }, { code: 'DE', level: 'fluent' }, { code: 'EN', level: 'fluent' }]} names={LANGUAGE_NAMES.en} matched={['EN', 'RU']} />
+</BothThemes>
+
+## Accessibility
+
+- The list has one accessible name with full language names; the visual codes are hidden from screen readers.
+- A match is shown with a check icon as well as color.

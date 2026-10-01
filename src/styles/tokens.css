@@ -1,0 +1,128 @@
+/*
+ * Parlo design tokens — single source of truth for color, radius, elevation, motion.
+ * Base values come from docs/parlo-prototype-brief.md §4. Storybook reads this file.
+ * Status and accent colors have a -text variant for text on light surfaces (AA 4.5:1)
+ * and a -soft variant for badge and banner backgrounds.
+ */
+
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+
+  /* Text */
+  --ink: #16211f;
+  --muted: #56645f;
+
+  /* Surfaces */
+  --canvas: #f4f6f4;
+  --surface: #ffffff;
+  --line: #dce3df;
+
+  /* Brand */
+  --brand: #0f6b5c;
+  --brand-soft: #e3f1ee;
+  --on-brand: #ffffff;
+  /* Branded header on the patient home: solid brand, white content */
+  --hero: #0f6b5c;
+  /* Soft light in the top-right corner and a deeper base give the header depth */
+  --hero-glow: #3a9a7c;
+  --hero-deep: #0a5247;
+  --on-hero: #ffffff;
+
+  /* Accent: earliest-slot emphasis, sparingly */
+  --accent: #e4704f;
+  --accent-text: #b24a2c;
+  --accent-soft: #fceae4;
+
+  /* Status: always paired with an icon and a label */
+  --ok: #1e7f4b;
+  --ok-text: #176b3f;
+  --ok-soft: #e4f3ea;
+  --warn: #b8740a;
+  --warn-text: #8a5606;
+  --warn-soft: #fbf0dc;
+  --error: #c4363a;
+  --error-text: #ae2e33;
+  --error-soft: #fbe7e7;
+  --info: #2d62b8;
+  --info-text: #2d62b8;
+  --info-soft: #e6eefa;
+
+  /* Stage: presentation background around device frames, not product UI */
+  --stage: #e6eae7;
+  --stage-ink: #16211f;
+  --bezel: #16211f;
+
+  /* Radius */
+  --radius-chip: 999px;
+  --radius-control: 10px;
+  --radius-card: 14px;
+  --radius-sheet: 22px;
+
+  /* Elevation */
+  --shadow-card: 0 1px 2px rgb(22 33 31 / 0.06);
+  --shadow-sheet: 0 -8px 32px rgb(22 33 31 / 0.14);
+  --shadow-device: 0 30px 80px -20px rgb(22 33 31 / 0.35);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --duration-press: 150ms;
+  --duration-base: 220ms;
+  --duration-sheet: 360ms;
+}
+
+:root[data-theme='dark'],
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  /* Text */
+  --ink: #eef3f1;
+  --muted: #9baaa5;
+
+  /* Surfaces */
+  --canvas: #0e1412;
+  --surface: #161e1b;
+  --line: #26312d;
+
+  /* Brand */
+  --brand: #3db39e;
+  --brand-soft: #17322c;
+  --on-brand: #0e1412;
+  /* Deeper than the dark brand so the header does not glare at night */
+  --hero: #14463d;
+  --hero-glow: #256a58;
+  --hero-deep: #0d3530;
+  --on-hero: #ffffff;
+
+  /* Accent: earliest-slot emphasis, sparingly */
+  --accent: #f08e70;
+  --accent-text: #f08e70;
+  --accent-soft: #3a2119;
+
+  /* Status: always paired with an icon and a label */
+  --ok: #46c07e;
+  --ok-text: #46c07e;
+  --ok-soft: #15301f;
+  --warn: #e6a745;
+  --warn-text: #e6a745;
+  --warn-soft: #33270f;
+  --error: #ef6b6f;
+  --error-text: #ef6b6f;
+  --error-soft: #3a1b1c;
+  --info: #7aa4ec;
+  --info-text: #7aa4ec;
+  --info-soft: #18253d;
+
+  /* Stage: presentation background around device frames, not product UI */
+  --stage: #070a09;
+  --stage-ink: #eef3f1;
+  --bezel: #2a3431;
+
+  /* Elevation */
+  --shadow-card: 0 0 0 1px rgb(255 255 255 / 0.02);
+  --shadow-sheet: 0 -8px 32px rgb(0 0 0 / 0.5);
+  --shadow-device: 0 30px 80px -20px rgb(0 0 0 / 0.8);
+}
+

@@ -1,0 +1,46 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { Card, CardGrid, Lead } from './docs-blocks'
+
+<Meta title="Introduction" />
+
+# Parlo design system
+
+<Lead>
+  The right doctor, in your language, at the earliest real slot. One set of tokens and components for three
+  products: the patient app, the doctor app and the practice dashboard. Light and dark, English and German.
+</Lead>
+
+## What is here
+
+<CardGrid>
+  <Card title="Guidelines" href="/?path=/docs/guidelines--docs">
+    Principles, signature elements, writing rules and how to use tokens.
+  </Card>
+  <Card title="Foundations" href="/?path=/story/foundations--colors">
+    Colors with live AA contrast, typography, shape, elevation and motion. Read straight from the token files.
+  </Card>
+  <Card title="Components" href="/?path=/docs/components-button--docs">
+    Buttons, chips, fields, lists, sheets, banners and navigation, with every state.
+  </Card>
+  <Card title="Patterns" href="/?path=/docs/patterns-languagechips--docs">
+    Signature components: language chips, earliest slot, result card, status badge, needs attention, calendar.
+  </Card>
+</CardGrid>
+
+## Personality
+
+Calm, human, precise. A deep green-teal instead of the default medical blue, warm enough for someone new in the
+country and clear enough for a busy reception desk.
+
+## Platforms
+
+| Product | Frame | Conventions |
+| --- | --- | --- |
+| Patient app | 390 × 844 | Apple HIG: large titles, labeled tab bar, sheets with detents, 44 pt targets |
+| Doctor app | 390 × 844 | Same as patient; "My day" first |
+| Practice dashboard | 1440 × 900 | Left navigation with labels, content max width, keyboard shortcuts in the calendar |
+
+## Source of truth
+
+Code is the source of truth; this Storybook renders it. Tokens live in `src/styles/tokens.css` and are bridged to
+Tailwind in `src/styles/index.css`. The Foundations pages parse those files, so they cannot drift.

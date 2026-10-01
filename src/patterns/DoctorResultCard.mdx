@@ -1,0 +1,51 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks'
+import { Lead } from '../design-system/docs-blocks'
+import * as Stories from './DoctorResultCard.stories'
+
+<Meta of={Stories} />
+
+# Doctor result card
+
+<Lead>
+  One result in the patient's search. It answers the questions in the order a patient asks them: when, who, where,
+  in which language, with which insurance.
+</Lead>
+
+<Canvas of={Stories.Default} />
+<Controls of={Stories.Default} />
+
+## Anatomy
+
+| Order | Element | Why here |
+| --- | --- | --- |
+| 1 | Earliest slot, distance | Time beats ratings. The first thing you read is when you can go. |
+| 2 | Doctor, specialty, practice | Who and where. The whole card opens the profile. |
+| 3 | Language chips, insurance, visit type | Can I talk to them, will my insurance cover it. The patient's languages are highlighted. |
+| 4 | Rating | Present but last; rating alone never ranks a result. |
+| 5 | Three bookable times | Book without opening the profile. "All times" opens the calendar. |
+
+Kept from the 2019 original: times right in the results. Changed: the earliest slot moved from the bottom to the
+top, and languages became a first-class attribute.
+
+## Specialists
+
+<Canvas of={Stories.Specialist} />
+
+Specialists often have their earliest slot weeks away and expect a referral (Überweisung). The card says so up
+front, so nobody learns it at the reception desk.
+
+## German
+
+<Canvas of={Stories.German} />
+
+German labels are longer; the chip row wraps and the rating moves to its own line when needed.
+
+## Loading
+
+<Canvas of={Stories.Loading} />
+
+## Accessibility
+
+- One stretched button (the doctor's name) makes the card clickable; slot buttons sit above it and have their own
+  labels ("Book 08:40").
+- Distance and rating are text, not icons alone.
