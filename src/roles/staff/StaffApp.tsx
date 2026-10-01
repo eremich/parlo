@@ -17,7 +17,7 @@ import { practiceById } from '../../data/doctors'
 import { useT } from '../../i18n'
 import { addDays } from '../../lib/format'
 import { heroAppointmentId, useApp } from '../../store/app'
-import { useShell } from '../../store/shell'
+import { START_PATH, useShell } from '../../store/shell'
 import { AppointmentPanel } from './AppointmentPanel'
 import { CalendarScreen } from './CalendarScreen'
 import { ConflictPanel } from './ConflictPanel'
@@ -39,7 +39,7 @@ const START: Record<string, string> = { 'hero-filled': '/calendar', 'hero-done':
 export const StaffApp = () => {
   const scenario = useShell((s) => s.scenario)
   return (
-    <MemoryRouter initialEntries={[START[scenario] ?? '/today']}>
+    <MemoryRouter initialEntries={[START_PATH ?? START[scenario] ?? '/today']}>
       <StaffShell />
     </MemoryRouter>
   )

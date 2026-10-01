@@ -1,8 +1,9 @@
 import { useRef, type ReactNode } from 'react'
 import { useFitScale } from '../hooks/useFitScale'
+import { cx } from '../lib/cx'
 import { useApp } from '../store/app'
 
-const SCREEN = { width: 390, height: 844 }
+export const SCREEN = { width: 390, height: 844 }
 const BEZEL = 12
 
 /** iPhone-sized frame (390 × 844) that scales down to fit the stage. */
@@ -18,15 +19,20 @@ export const PhoneFrame = ({ children }: { children: ReactNode }) => {
           className="origin-top-left rounded-[58px] bg-bezel shadow-device"
           style={{ ...outer, padding: BEZEL, transform: `scale(${scale})` }}
         >
-          <div data-overlay-root className="group/phone relative h-full w-full overflow-hidden rounded-[46px] bg-canvas">
-            <StatusBar />
-            {children}
-          </div>
+          <PhoneScreen className="rounded-[46px]">{children}</PhoneScreen>
         </div>
       </div>
     </div>
   )
 }
+
+/** The screen itself: status bar plus the layer sheets portal into. Also used bare for screenshots. */
+export const PhoneScreen = ({ className, children }: { className?: string; children: ReactNode }) => (
+  <div data-overlay-root className={cx('group/phone relative h-full w-full overflow-hidden bg-canvas', className)}>
+    <StatusBar />
+    {children}
+  </div>
+)
 
 const StatusBar = () => {
   // The prototype clock, so the phone shows the same time the scenario is set to

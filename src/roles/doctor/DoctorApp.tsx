@@ -13,7 +13,7 @@ import { useFormat } from '../../i18n/useFormat'
 import { LanguageList } from '../../patterns/LanguageChips'
 import { StatusBadge } from '../../patterns/StatusBadge'
 import { heroAppointmentId, useApp } from '../../store/app'
-import { useShell } from '../../store/shell'
+import { START_PATH, useShell } from '../../store/shell'
 import { BriefScreen } from './BriefScreen'
 import { InviteScreen } from './InviteScreen'
 import { DOCTOR_ID, doctor } from './doctor'
@@ -33,7 +33,7 @@ export const DoctorApp = () => {
           ? ['/day', `/brief/${heroId}`]
           : ['/day']
   return (
-    <MemoryRouter initialEntries={start}>
+    <MemoryRouter initialEntries={START_PATH ? ['/day', START_PATH] : start}>
       <DoctorRoutes />
     </MemoryRouter>
   )

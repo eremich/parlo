@@ -32,6 +32,11 @@ const pick = <T extends string>(value: string | null, allowed: readonly T[], fal
 
 const params = new URLSearchParams(window.location.search)
 
+/** Screenshot mode: one bare screen at device size, no presentation shell (`?shot=1`) */
+export const SHOT = params.has('shot')
+/** Deep link into a role app, e.g. `?path=/doctor/rahimi`; the app's home stays underneath for Back */
+export const START_PATH = params.get('path')?.startsWith('/') ? params.get('path') : null
+
 type ShellState = {
   role: Role
   lang: Lang

@@ -8,7 +8,7 @@ import { useT } from '../../i18n'
 import { useFormat } from '../../i18n/useFormat'
 import { PushNotification } from '../../patterns/PushNotification'
 import { heroAppointmentId, useApp } from '../../store/app'
-import { useShell } from '../../store/shell'
+import { START_PATH, useShell } from '../../store/shell'
 import { AppointmentScreen } from './AppointmentScreen'
 import { AppointmentsScreen } from './AppointmentsScreen'
 import { BookedScreen } from './BookedScreen'
@@ -48,7 +48,7 @@ const FULL_SCREEN = ['/doctor/', '/book/', '/booked/', '/appointment/', '/review
 export const PatientApp = () => {
   const scenario = useShell((s) => s.scenario)
   return (
-    <MemoryRouter initialEntries={['/search', ...(startRoute(scenario) ? [startRoute(scenario)!] : [])]}>
+    <MemoryRouter initialEntries={['/search', ...(START_PATH ? [START_PATH] : startRoute(scenario) ? [startRoute(scenario)!] : [])]}>
       <PatientRoutes />
       <OfferPush />
     </MemoryRouter>

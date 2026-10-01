@@ -77,7 +77,15 @@ Source of truth: `docs/parlo-prototype-brief.md`
 - [x] Scenarios: `onboarding`, `offline`, `request-pending`, `conflict`, `running-late`
 - [x] Removed an inert "Invite member" button; singular rating labels on reviews
 - [x] Verified all new screens and scenarios; German scan on reception screens; builds pass
-### Stage 9 · URL scenarios, 30 Playwright shots, review, deploy (Vercel + /storybook)
+### Stage 9 · Screenshots, portfolio case, deploy
+Framing: in 2019 Ihor led design of a doctor-booking marketplace; Parlo re-imagines it for Germany, built with AI in 2026. No invented research results or statistics: research = desk research + what the 2019 work kept; success metrics = launch targets, labelled as such.
+- [x] 9.1 Shot mode in the prototype: bare screen, deep link (`?shot=1&path=/doctor/rahimi`)
+- [x] 9.2 Playwright + `npm run shots`: patient, doctor, staff, dark set (webp, 2x)
+- [x] 9.3 Flows as Miro-style diagrams: hero scenario across 3 roles, patient booking, staff day, doctor day
+- [x] 9.4 Storybook images: tokens, components, patterns
+- [ ] 9.5 Deploy demo + /storybook (Vercel) — only with Ihor's go-ahead
+- [x] 9.6 Portfolio case EN + DE in D:\Portfolio (content, body, registry, assets)
+- [ ] 9.7 Verify the case page (desktop, mobile, dark, DE); commit only on request
 
 ## Completed
 
