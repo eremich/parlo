@@ -26,3 +26,6 @@ shots/
 
 # Vercel CLI link
 .vercel
+
+.vercel
+.env*
