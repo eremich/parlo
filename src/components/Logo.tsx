@@ -60,15 +60,16 @@ export const Logo = ({ size = 28, className }: LogoProps) => (
 )
 
 /**
- * App icon: the color mark on soft mint (push notifications, home screen). App icons do not change
- * with the theme, so it always renders with the light tokens.
+ * App icon: the colour mark on white (home screen, push notifications, browser). App icons do not
+ * change with the theme, so it always renders with the light tokens; a hairline keeps it visible on
+ * white surfaces. The mark sits slightly low because its stem makes it taller than it is wide.
  */
 export const AppIcon = ({ size = 36, className }: { size?: number; className?: string }) => (
   <span
     aria-hidden
     data-theme="light"
-    className={cx('inline-flex shrink-0 items-center justify-center bg-brand-soft', className)}
-    style={{ width: size, height: size, borderRadius: size * 0.25 }}
+    className={cx('inline-flex shrink-0 items-center justify-center bg-surface ring-1 ring-black/[0.06]', className)}
+    style={{ width: size, height: size, borderRadius: size * 0.225, paddingTop: size * 0.06 }}
   >
     <LogoMark size={size * 0.6} />
   </span>
